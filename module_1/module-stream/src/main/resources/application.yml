@@ -1,1 +1,39 @@
 
+spring:
+  profiles:
+    active: prod
+
+---
+
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/module?serverTimezone=Asia/Seoul
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Password!
+  config:
+    activate:
+      on-profile: prod
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+
+    generate-ddl: true
+    #show-sql: true
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+
+  kafka:
+    consumer:
+      bootstrap-servers: 172.20.14.243:9092
+      value-deserializer: org.apache.kafka.common.serialization.StringSerializer
+    producer:
+      bootstrap-servers: 172.20.14.243:9092
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
