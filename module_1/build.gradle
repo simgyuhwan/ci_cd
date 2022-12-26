@@ -62,7 +62,6 @@ project(":module-stream") {
 }
 
 project(":module-core") {
-
     bootJar.enabled = false
     jar.enabled = true
 }
