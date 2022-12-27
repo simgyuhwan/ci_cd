@@ -4,6 +4,7 @@ import com.example.dto.CustomerDto;
 import com.example.entity.Customer;
 import com.example.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,6 +32,7 @@ public class CustomerController {
 
     @GetMapping("/customers")
     public List<Customer> getCustomers(){
+//        Assert.hasText("", "no message");
         return customerService.getCustomers();
     }
 
